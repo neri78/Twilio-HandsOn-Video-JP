@@ -11,7 +11,7 @@
 - video.js [[ソース]](../assets/client/video.js)
 - style.css [[ソース]](../assets/client/style.css)
 
-アプリケーションを再起動し、`https://localhost:3000`にアクセスすると下記のようなページが表示されることを確認します。
+アプリケーションを再起動し、`https://localhost:3000/index.html`にアクセスすると下記のようなページが表示されることを確認します。
 
 ![チャットクライアント](../assets/04-chat-client.png)
 
