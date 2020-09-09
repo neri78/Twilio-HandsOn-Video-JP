@@ -95,7 +95,7 @@ response.setBody({
 再度下記のコードを利用し実行結果が想定通り得られているか確認します。
 
 ```
-http://localhost:3000/video-token?user=<任意のユーザー名>
+http://localhost:3000/video-token?identity=<任意のユーザー名>
 ```
 
 これでアクセストークン生成リクエスト時、同時にビデオチャットRoomを作成できるようになりました。

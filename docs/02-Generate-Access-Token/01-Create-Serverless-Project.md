@@ -50,7 +50,7 @@ npm start
 ![jwt.io](../assets/02-jwt-io.png)
 
 
-<details><summary>Severless Toolkitを使ったプロジェクトの作成について<summary><div>
+## 補足: Severless Toolkitを使ったプロジェクトの作成について
 
 新しくTwilio Serverlessプロジェクトを作成する場合、次のコマンドを実行します。
 
@@ -64,11 +64,6 @@ Serverless Toolkitにはテンプレートが用意されており、次のコ�
 twilio serverless:list-templates
 ```
 ![テンプレート一覧](../assets/02-list-templates.png)
-
-</div>
-</details>
-
-
 
 
 ## 次の手順

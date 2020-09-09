@@ -32,15 +32,15 @@ window.addEventListener('load', () => {
         // Video Client SDKを使用し、Roomに接続（音声OFF, ビデオON）
         
         // ローカル参加者をページに追加
-
+        
         // 現在のルーム参加者をページに追加
         
-        // Roomに新たに参加者が追加された場合のイベントハンドラを指定
+        // // Roomに新たに参加者が追加された場合のイベントハンドラを指定
         
-        // Roomから参加者が退出した場合のイベントハンドラを指定
+        // // Roomから参加者が退出した場合のイベントハンドラを指定
         
         // ブラウザのリロードやタブのクローズ時にRoomから退出
-
+        
     }
 
     function participantConnected(participant) {

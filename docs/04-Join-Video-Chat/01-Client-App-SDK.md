@@ -9,6 +9,7 @@
 次のファイルをそれぞれassets内に作成し配置します。
 - index.html [[ソース]](../assets/client/index.html)
 - video.js [[ソース]](../assets/client/video.js)
+- style.css [[ソース]](../assets/client/style.css)
 
 アプリケーションを再起動し、`https://localhost:3000`にアクセスすると下記のようなページが表示されることを確認します。
 

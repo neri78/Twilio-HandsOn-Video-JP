@@ -30,10 +30,10 @@ response.setBody({ token: accessToken.toJwt(), room: ROOM });
 Webアプリケーションを再起動し、下記のようにパラメータとして渡されたユーザー名を渡した場合、トークンが名前によって異なる値となることを確認しましょう。先ほど試したようにユーザー名は[jwt.io](https://jwt.io)でも確認できます。また、ビデオチャットルームの名前が返されていることをブラウザーの出力からも確認してください。
 
 ```
-http://localhost:3000/video-token?user=<任意のユーザー名>
+http://localhost:3000/video-token?identity=<任意のユーザー名>
 ```
 
-<details><summary>IDENTITYは一意の値を設定する<summary><div>
+## IDENTITYは一意の値を設定する
 
 今回は実装しませんが、IDENTITYは固有のユーザーを識別できるものでなくてはなりません。そのため、現在の実装で同じユーザー名を利用すると問題が発生します。そのため、ユーザーから複数の情報を受け取りそれを組み合わせる。あるいは常にランダムな値を生成しそちらを利用するなど、本番開発では別人が同じ値とならないように注意します。
 
@@ -41,8 +41,6 @@ http://localhost:3000/video-token?user=<任意のユーザー名>
 ```js
 response.setBody({ token: accessToken.toJwt(), identity: <一意の値>, room: ROOM });
 ```
-</div>
-</details>
 
 ## 次のハンズオン
 
