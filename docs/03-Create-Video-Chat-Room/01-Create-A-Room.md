@@ -100,6 +100,76 @@ http://localhost:3000/video-token?identity=<任意のユーザー名>
 
 これでアクセストークン生成リクエスト時、同時にビデオチャットRoomを作成できるようになりました。
 
+ここまでのコードは次のようになります。
+```js
+exports.handler = async function(context, event, callback) {
+  // Change these values for your use case
+  // REMINDER: This identity is only for prototyping purposes
+  
+  // ユーザー名
+  const IDENTITY = event.identity;
+  // ビデオチャットルーム名
+  const ROOM = 'myroom';
+
+
+  //Twilioクライアントを取得
+  const client = context.getTwilioClient();
+  let room;
+  try {
+    // 進行中のビデオチャットルームを一意の名前で検索
+    let rooms = await client.video.rooms.list({
+      status: 'in-progress', 
+      uniqueName: ROOM
+    });
+    if (rooms.length)
+      room = rooms[0];
+    else {
+      // 存在しない場合は作成
+      room = await client.video.rooms.create({ 
+        uniqueName: ROOM,
+        type: 'group'
+      });
+    }    
+  }
+  catch(error) {
+    console.error(error);
+    callback(error);
+  }
+  const ACCOUNT_SID = context.ACCOUNT_SID;
+
+  // set these values in your .env file
+  const API_KEY = context.API_KEY;
+  const API_SECRET = context.API_SECRET;
+
+  const AccessToken = Twilio.jwt.AccessToken;
+  const VideoGrant = AccessToken.VideoGrant;
+
+  const grant = new VideoGrant();
+  grant.room = ROOM;
+
+  const accessToken = new AccessToken(ACCOUNT_SID, API_KEY, API_SECRET);
+
+  accessToken.addGrant(grant);
+  accessToken.identity = IDENTITY;
+
+
+  const response = new Twilio.Response();
+
+  // Uncomment these lines for CORS support
+  // response.appendHeader('Access-Control-Allow-Origin', '*');
+  // response.appendHeader('Access-Control-Allow-Methods', 'GET');
+  // response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  response.appendHeader('Content-Type', 'application/json');
+  // tokenのほかにビデオチャットルーム名、ルームSIDも返す。
+  response.setBody({ 
+    token: accessToken.toJwt(), 
+    room: ROOM, 
+    roomSid: room.sid });
+  callback(null, response);
+};
+
+```
 
 ## 関連リソース
 
