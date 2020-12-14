@@ -10,7 +10,7 @@
 
 ![クライアント側でアクセストークンを取得できている](../assets/04-client-access-token.png)
 
-実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認してください。
+実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認しておくと良いでしょう。
 
 ```js
 loginForm.addEventListener('submit', async (event) => {
@@ -90,4 +90,4 @@ __おめでとうございます。これでビデオチャットを開始でき
 
 ## 次のハンズオン
 
-- [ハンズオン: トラックのパブリッシュとサブスクライブ](/docs/05-Publish-Subscribe-Tracks/00-Overview.md)
+- [ハンズオン: トラックのパブリッシュとサブスクライブ](../05-Publish-Subscribe-Tracks/00-Overview.md)

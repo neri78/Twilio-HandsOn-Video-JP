@@ -16,7 +16,7 @@ Programmable Videoを利用するためには、次の3つの資格情報が必�
 
 Twilioが提供するサービスの多くはアカウント情報（`Account SID`, `Auth Token`）を利用し認証します。これらの情報はコンソールから確認できます。
 
-まず、[Twilioホームページ](https://www.twilio.com/)をブラウザーで開き、[LOG IN](https://www.twilio.com/login) をクリックするか、[コンソール](https://www.twilio.com/console)に直接移動します。
+まず、[Twilioホームページ](https://jp.twilio.com/)をブラウザーで開き、[LOG IN](https://jp.twilio.com/login) をクリックするか、[コンソール](https://jp.twilio.com/console)に直接移動します。
 
 ![Twilioコンソール](../assets/01-twilio-console.png "Twilioコンソール")
 
@@ -24,7 +24,7 @@ Twilioが提供するサービスの多くはアカウント情報（`Account SI
 
 ## 1-2. APIキーの生成
 
-続いてAPIキーを作成します。[APIキー作成画面](https://www.twilio.com/console/project/api-keys/create)を表示します。
+続いてAPIキーを作成します。[APIキー作成画面](https://jp.twilio.com/console/project/api-keys/create)を表示します。
 
 `FRIENDLY NAME`に作成する任意の名前を入力し、`KEY TYPE`を`Standard`と設定します。
 
@@ -42,4 +42,4 @@ Twilioが提供するサービスの多くはアカウント情報（`Account SI
 
 ## 次のハンズオン
 
-- [ハンズオン: アクセストークンの生成](/docs/02-Generate-Access-Token/00-Overview.md)
+- [ハンズオン: アクセストークンの生成](../02-Generate-Access-Token/00-Overview.md)

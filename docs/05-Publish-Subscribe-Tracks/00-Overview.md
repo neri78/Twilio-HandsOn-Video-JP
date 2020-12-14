@@ -6,5 +6,5 @@
 - トラックのパブリッシュとサブスクライブ方法を理解する。
 
 ## 手順
-1. [ローカル参加者をページに追加](./01-Add-Local-Participant.md)
-2. [既存の参加者、およびRoomへの新規・退出をハンドリング](./02-Handle-Join-Leave-Participant.md)
+1. [ローカル参加者をページに追加](01-Add-Local-Participant.md)
+2. [Roomへの参加・退出をハンドリング](02-Handle-Join-Leave-Participant.md)

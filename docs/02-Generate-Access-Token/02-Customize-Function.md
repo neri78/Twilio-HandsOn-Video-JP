@@ -44,5 +44,5 @@ response.setBody({ token: accessToken.toJwt(), identity: <一意の値>, room: R
 
 ## 次のハンズオン
 
-- [ハンズオン: ビデオチャット用のRoomを作成](/docs/03-Create-Video-Chat-Room/00-Overview.md)
+- [ハンズオン: ビデオチャット用のRoomを作成](../03-Create-Video-Chat-Room/00-Overview.md)
 
