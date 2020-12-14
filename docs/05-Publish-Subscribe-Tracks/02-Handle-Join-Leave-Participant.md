@@ -1,6 +1,6 @@
-# 手順2: 既存の参加者、およびRoomへの新規・退出をハンドリング
+# 手順2: Roomへの参加・退出をハンドリング
 
-この手順ではRoomにほかの参加者が参加した場合と退出した場合の処理を実装します。
+この手順ではRoomに新規の参加者が追加された場合と既存の参加者が退出した場合の処理を実装します。
 
 ## 2-1. 既存のRoom参加者をページに追加
 
@@ -57,7 +57,7 @@ Roomから参加者が退出した際は`participantDisconnected`イベントが
 videoRoom.on('participantDisconnected', participantDisconnected);
 ```
 
-`participantDisconnect`関数は指定の参加者のトラックをアンサブスクライブし、ページから表示要素を削除する、というシンプルな実装となっています。
+`participantDisconnect`関数は指定の参加者のトラックをアンサブスクライブし、ページから表示要素を削除するという実装になります。
 
 ```js
 // 参加者が接続解除した際の処理
@@ -132,7 +132,7 @@ async function startVideoChat(token, room) {
 
 ## video.js完成版
 
-全てを実装したvideo.jsはこちらになります。
+すべてを実装したvideo.jsはこちらになります。
 
 ```js
 window.addEventListener('load', () => {
@@ -267,8 +267,13 @@ window.addEventListener('load', () => {
 ```
 
 
-## 次のハンズオン
+## まとめ
 
 これでハンズオンは終了です。今回作成したプロジェクトはTwilio Functions / Assetsにデプロイしクラウド上で動作を確かめることができます。
 
-ただし、ユーザー認証機能は実装されていないため、本番稼働には向きません。ご注意ください。
+デプロイ方法については[Twilio Serverlessハンズオン](https://github.com/neri78/Twilio-HandsOn-Serverless-JP)を[参考](https://github.com/neri78/Twilio-HandsOn-Serverless-JP/blob/main/docs/03-Deploy-to-Twilio-Cloud/00-Overview.md)にしてください。
+
+
+ただしユーザー認証機能は実装されていないため、本番稼働には使用しないでください。また、不要な課金を避けるため、デプロイ後に不要となった時点で[サービスを削除](https://github.com/neri78/Twilio-HandsOn-Serverless-JP/blob/main/docs/04-Remove-Service/01-Delete-Service.md)することを忘れないようにしましょう。
+
+

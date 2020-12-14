@@ -4,13 +4,12 @@
 
 ## 1-1. Twilio Functionsのハンドラを非同期 functionに変更
 
-[Twilio Nodeヘルパーライブラリー](https://jp.twilio.com/docs/libraries/node)を利用し、[Room REST API](https://jp.twilio.com/docs/video/api/rooms-resource)を呼び出しRoomを作成できます。ただし、Room一覧の表示や作成は非同期で実行されます。
-
-そのため、Twilio Functionsのハンドラを非同期に設定します。
+[Twilio Nodeヘルパーライブラリー](https://jp.twilio.com/docs/libraries/node)を利用し、[Room REST API](https://jp.twilio.com/docs/video/api/rooms-resource)を呼び出しRoomを作成できます。ただし、Room一覧の表示や作成は非同期で実行されます。そのため、まずはTwilio Functionsのハンドラを非同期に設定します。
 
 `/functions/video-token.js`をコードエディタで開き、ハンドラのfunctionに`async`キーワードを追加します。
 
 ```js
+//非同期に設定
 exports.handler = async function(context, event, callback) {
     // ...
 }
@@ -35,6 +34,8 @@ let room;
 //Twilioクライアントを取得
 const client = context.getTwilioClient();
 let room;
+
+//ここからのコードを追加
 try {
   // 進行中のビデオチャットルームを一意の名前で検索
   let rooms = await client.video.rooms.list({
@@ -65,13 +66,15 @@ try {
     status: 'in-progress', 
     uniqueName: ROOM
   });
+
+  //ビデオルームが存在するかを確認
   if (rooms.length)
     room = rooms[0];
   else {
     // 存在しない場合は作成
     room = await client.video.rooms.create({ 
       uniqueName: ROOM,
-      type: 'group'
+      type: 'go'
     });
   }  
 }
@@ -115,12 +118,15 @@ exports.handler = async function(context, event, callback) {
   //Twilioクライアントを取得
   const client = context.getTwilioClient();
   let room;
+  //ここからのコードを追加
   try {
     // 進行中のビデオチャットルームを一意の名前で検索
     let rooms = await client.video.rooms.list({
       status: 'in-progress', 
       uniqueName: ROOM
     });
+
+    //ビデオルームが存在するかを確認
     if (rooms.length)
       room = rooms[0];
     else {
@@ -176,4 +182,4 @@ exports.handler = async function(context, event, callback) {
 
 ## 次のハンズオン
 
-- [ハンズオン: ビデオチャットに参加](/docs/04-Join-Video-Chat/00-Overview.md)
+- [ハンズオン: ビデオチャットに参加](../04-Join-Video-Chat/00-Overview.md)

@@ -4,8 +4,8 @@
 
 Twilio CLIおよびServerless Toolkitをインストールしていない場合はこの手順に先立ってインストールしてください。
 
-- [ハンズオン: Twilio CLIをインストール](https://github.com/neri78/Twilio-HandsOn-CLI-JP/blob/master/docs/01-Install-Twilio-CLI/01-00-Overview.md)
-- [ハンズオン: Twilio CLIを使ったサーバーレス実行環境の構築 - 手順1: Serverless Toolkitのインストール](https://github.com/neri78/Twilio-HandsOn-CLI-JP/blob/master/docs/03-Use-Serverless-Toolkit/03-01-Install-Serverless-Toolkit.md)
+- [ハンズオン: Twilio CLIをインストール](https://neri78.github.io/Twilio-HandsOn-CLI-JP/docs/01-Install-Twilio-CLI/00-Overview.html)
+- [ハンズオン: Twilio CLIを使ったサーバーレス実行環境の構築 - 手順1: Serverless Toolkitのインストール](https://neri78.github.io/Twilio-HandsOn-CLI-JP/docs/03-Use-Serverless-Toolkit/01-Install-Serverless-Toolkit.html)
 
 ## 1-1. Twilio Serverlessプロジェクトをテンプレートから作成
 
@@ -17,7 +17,7 @@ Serverless ToolkitはTwilio Functions、Assetsなどのサーバレス実行環�
 twilio serverless:init <アプリ名> --template=video-token
 ```
 
-<アプリケーション名> のフォルダに移動し、作成されている .envファイルをコードエディタで開きます。最初の2行にはあらかじめ値が入力されていますが、[ハンズオン: AccountSidの確認とAPIキーの作成](/docs/01-Get-Credentials/00-Overview.md)で確認、生成した値に変更します。また、下記の`API_KEY`、`API_SECRET`にも値を入力します。
+<アプリケーション名> のフォルダに移動し、作成されている .envファイルをコードエディタで開きます。最初の2行にはあらかじめ値が入力されていますが、[ハンズオン: AccountSidの確認とAPIキーの作成](../01-Get-Credentials/00-Overview.md)で確認、生成した値に変更します。また、下記の`API_KEY`、`API_SECRET`にも値を入力します。
 
 ```
 # Variables for function ".env"

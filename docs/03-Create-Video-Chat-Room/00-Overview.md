@@ -7,8 +7,8 @@
 - Roomの種類を指定する方法を理解する。
 
 ## 手順
-1. [Roomを作成](./01-Create-A-Room.md)
+1. [Roomを作成](01-Create-A-Room.md)
 
 ## 次のハンズオン
 
-- [ハンズオン: ビデオチャットに参加](/docs/04-Join-Video-Chat/00-Overview.md)
+- [ハンズオン: ビデオチャットに参加](../04-Join-Video-Chat/00-Overview.md)

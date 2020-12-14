@@ -12,4 +12,4 @@
 
 ## 次のハンズオン
 
-[ハンズオン: アクセストークンの生成](/docs/02-Generate-Access-Token/00-Overview.md)
+[ハンズオン: アクセストークンの生成](../02-Generate-Access-Token/00-Overview.md)

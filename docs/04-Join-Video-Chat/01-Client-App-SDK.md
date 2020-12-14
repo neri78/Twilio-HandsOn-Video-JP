@@ -32,4 +32,4 @@
 
 ## 次の手順
 
-- [ルームに接続](./02-Connect-To-Room.md)
+- [ルームに接続](02-Connect-To-Room.md)

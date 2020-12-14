@@ -1,5 +1,6 @@
 .DS_store
 
 .textlintrc
+node_modules
 
 /prh-rules/
