@@ -6,7 +6,7 @@
 
 `assets`フォルダに配置したファイルは[Assets](https://jp.twilio.com/docs/runtime/assets)にアップロードされます。Assetsは静的なファイルをホスティングであり、`.mp3`のような音声ファイルやテキストファイル、あるいは今回のように`.html`ファイルなどを配置し利用できます。
 
-次のファイルをそれぞれassets内に作成し配置します。
+[assets.zip](../assets/client/assets.zip)をダウンロード、解凍しassets内に配置します。
 - index.html [[ソース]](../assets/client/index.html)
 - video.js [[ソース]](../assets/client/video.js)
 - style.css [[ソース]](../assets/client/style.css)

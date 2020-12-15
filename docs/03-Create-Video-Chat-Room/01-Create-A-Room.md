@@ -22,28 +22,39 @@ Twilio Functionsのハンドラに引数として渡されるcontextからTwilio
 `const ROOM = 'myroom';`の後に次のコードを追加します。
 
 ```js
-//Twilioクライアントを取得
-const client = context.getTwilioClient();
-let room;
+exports.handler = async function(context, event, callback) {
+  // Change these values for your use case
+  // REMINDER: This identity is only for prototyping purposes
+  const IDENTITY = event.identity;
+  const ROOM = 'myroom';
+
+  // ここにコードを追加
+  // Twilioクライアントを取得
+  const client = context.getTwilioClient();
+  let room;
+
+  // ...省略
+});
 ```
 
 ## 1-3 ビデオチャットルームをuniqueNameで検索
 
 ビデオチャットルームは`uniqueName`という属性で検索できます。今回は`list`メソッドを利用し、進行中（`in-progress`）状態かつ、`myroom`というユニーク名を持つRoomを検索します。`try`以降を追加してください。
 ```js
-//Twilioクライアントを取得
+// ... 省略
+
+// Twilioクライアントを取得
 const client = context.getTwilioClient();
 let room;
 
-//ここからのコードを追加
+// 存在確認
+// ここからのコードを追加
 try {
   // 進行中のビデオチャットルームを一意の名前で検索
   let rooms = await client.video.rooms.list({
     status: 'in-progress', 
     uniqueName: ROOM
-  });
-
-  // 存在確認
+  });
 }
 catch(error) {
   // エラーの場合
@@ -57,7 +68,7 @@ catch(error) {
 先ほど検索したRoomが存在するかを確認します。存在しない場合は新たに作成し`room`変数に格納します。
 
 ```js
-//Twilioクライアントを取得
+// Twilioクライアントを取得
 const client = context.getTwilioClient();
 let room;
 try {
@@ -66,8 +77,9 @@ try {
     status: 'in-progress', 
     uniqueName: ROOM
   });
-
-  //ビデオルームが存在するかを確認
+  // 存在確認
+  // ここからコードを追加
+  // ビデオルームが存在するかを確認
   if (rooms.length)
     room = rooms[0];
   else {
@@ -76,7 +88,7 @@ try {
       uniqueName: ROOM,
       type: 'go'
     });
-  }  
+  }// ここまで  
 }
 catch(error) {
   console.error(error);
@@ -84,16 +96,6 @@ catch(error) {
 }
 ```
 ## 1-5. テスト実行
-
-今回のハンズオンでは使用しませんが、クライアント側に作成、あるいは取得したRoomの`SID`を返すように変更もしておきましょう。
-
-```js
-// tokenのほかにビデオチャットルーム名、ルームSIDも返す。
-response.setBody({ 
-  token: accessToken.toJwt(), 
-  room: ROOM, 
-  roomSid: room.sid });
-```
 
 再度下記のコードを利用し実行結果が想定通り得られているか確認します。
 
@@ -170,15 +172,24 @@ exports.handler = async function(context, event, callback) {
   // tokenのほかにビデオチャットルーム名、ルームSIDも返す。
   response.setBody({ 
     token: accessToken.toJwt(), 
-    room: ROOM, 
-    roomSid: room.sid });
+    room: ROOM});
   callback(null, response);
 };
 
 ```
 
-## 関連リソース
 
+## 補足:ルーム名ではなく、Room Sidを返す
+
+今回のハンズオンでは使用しませんが、Roomの`SID`を返すように変更することで、クライアント側で一意のIDを利用できます。
+
+```js
+// tokenのほかにビデオチャットルーム名、ルームSIDも返す。
+response.setBody({ 
+  token: accessToken.toJwt(), 
+  room: ROOM, 
+  roomSid: room.sid });
+```
 
 ## 次のハンズオン
 

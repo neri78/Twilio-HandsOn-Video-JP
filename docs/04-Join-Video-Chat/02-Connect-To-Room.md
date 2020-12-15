@@ -10,7 +10,7 @@
 
 ![クライアント側でアクセストークンを取得できている](../assets/04-client-access-token.png)
 
-実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認しておくと良いでしょう。
+roomSidが`undefined`になっていますがこのハンズオンでは問題ありません。[Roomを作成](../03-Create-Video-Chat-Room/01-Create-A-Room.md)の補足で説明されている`Room SID`を返すコードを実装すると表示されます。実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認しておくと良いでしょう。
 
 ```js
 loginForm.addEventListener('submit', async (event) => {
@@ -64,14 +64,14 @@ async function startVideoChat(token, room) {
 ```js
 async function startVideoChat(token, room) {
     // Video Client SDKを使用し、Roomに接続（音声OFF, ビデオON）
-    let videoChatRoom = await Twilio.Video.connect(
+    let videoRoom = await Twilio.Video.connect(
        token, {
         room: room,
         audio: false,
         video: true
     });
     // デバッグ用に出力
-    console.log(`${videoChatRoom.localParticipant}で${videoChatRoom}に接続しました`);
+    console.log(`${videoRoom.localParticipant}で${videoChatRoom}に接続しました`);
 
     // ...省略
 }
@@ -79,11 +79,11 @@ async function startVideoChat(token, room) {
 
 ブラウザーのキャッシュをクリアし、再度`index.html`を開き開発者ツールを表示します。その後、テキストボックスにユーザー名を入力し`Chatに参加`ボタンをクリックしてください。初回のみデバイスの使用許可を求められます。
 
-コンソールの出力でRoomに参加できていることを確認します。
+ブラウザコンソールの出力でRoomに参加できていることを確認します。
 
 ![Roomに参加し、クライアント側でアクセストークンを取得できている](../assets/04-client-connected-video.png)
 
-続けて別ブラウザー、あるいは別タブでユーザー名を変更し参加すると、`LocalParticipant`の`#?`部分が増加していることを確認できます。
+続けて別ブラウザー、あるいは別タブでユーザー名を変更し参加すると、部屋の種類によってコンソールにエラーが出力されます。たとえば`go`ルームは最大2名となるため、3タブ以上で参加しようとするとエラーになります。
 
 __おめでとうございます。これでビデオチャットを開始できました。__
 ただし現時点では参加者の映像が出力されません。次のハンズオンでは映像や音声をほかの参加者と共有する方法を学習します。
