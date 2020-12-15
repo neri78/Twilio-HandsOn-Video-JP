@@ -17,7 +17,7 @@ Serverless ToolkitはTwilio Functions、Assetsなどのサーバレス実行環�
 twilio serverless:init <アプリ名> --template=video-token
 ```
 
-<アプリケーション名> のフォルダに移動し、作成されている .envファイルをコードエディタで開きます。最初の2行にはあらかじめ値が入力されていますが、[ハンズオン: AccountSidの確認とAPIキーの作成](../01-Get-Credentials/00-Overview.md)で確認、生成した値に変更します。また、下記の`API_KEY`、`API_SECRET`にも値を入力します。
+`アプリケーション名`のフォルダに移動し、作成されている .envファイルをコードエディタで開きます。最初の2行にはあらかじめ値が入力されていますが、[ハンズオン: AccountSidの確認とAPIキーの作成](../01-Get-Credentials/00-Overview.md)で確認、生成した値に変更します。また、下記の`API_KEY`、`API_SECRET`にも値を入力します。
 
 ```
 # Variables for function ".env"
