@@ -71,7 +71,7 @@ async function startVideoChat(token, room) {
         video: true
     });
     // デバッグ用に出力
-    console.log(`${videoRoom.localParticipant}で${videoChatRoom}に接続しました`);
+    console.log(`${videoRoom.localParticipant}で${videoRoom}に接続しました`);
 
     // ...省略
 }
