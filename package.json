@@ -19,8 +19,8 @@
     "url": "https://github.com/neri78/Twilio-HandsOn-Video-JP/issues"
   },
   "homepage": "https://github.com/neri78/Twilio-HandsOn-Video-JP#readme",
-  "dependencies": {},
   "devDependencies": {
+    "markdown-link-check": "^3.8.6",
     "textlint": "^11.7.6",
     "textlint-rule-preset-ja-spacing": "^2.0.2",
     "textlint-rule-preset-ja-technical-writing": "^4.0.1",

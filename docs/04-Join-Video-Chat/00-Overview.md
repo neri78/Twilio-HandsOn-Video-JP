@@ -14,4 +14,4 @@
 
 ## 次のハンズオン
 
-[ハンズオン: Twilio CLIを使ったサービスの利用](../02-Use-Twilio-CLI/02-00-Overview.md)
+[ハンズオン: トラックのパブリッシュとサブスクライブ](../05-Publish-Subscribe-Tracks/00-Overview.md)

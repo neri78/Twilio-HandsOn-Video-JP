@@ -8,7 +8,7 @@ Programmable Videoを利用するためには、次の3つの資格情報が必�
 - API Key SID
 - API Secret
 
-今回使用するServerless Toolkitには[資格情報の問題](https://github.com/twilio-labs/serverless-toolkit/issues/163)が存在しているため、追加で次の情報についても控えておきます。
+また、Twilio Nodeヘルパーを利用する場合、下記の情報も必要です。
 
 - Auth Token
 
@@ -16,7 +16,7 @@ Programmable Videoを利用するためには、次の3つの資格情報が必�
 
 Twilioが提供するサービスの多くはアカウント情報（`Account SID`, `Auth Token`）を利用し認証します。これらの情報はコンソールから確認できます。
 
-まず、[Twilioホームページ](https://jp.twilio.com/)をブラウザーで開き、[LOG IN](https://jp.twilio.com/login) をクリックするか、[コンソール](https://jp.twilio.com/console)に直接移動します。
+まず、[Twilioホームページ](https://www.twilio.com/ja/)をブラウザーで開き、[LOG IN](https://jp.twilio.com/login) をクリックするか、[コンソール](https://jp.twilio.com/console)に直接移動します。
 
 ![Twilioコンソール](../assets/01-twilio-console.png "Twilioコンソール")
 
@@ -35,10 +35,6 @@ Twilioが提供するサービスの多くはアカウント情報（`Account SI
 ![APIキー](../assets/01-api-key.png)
 
 なお、`SECRET`はこの画面のみ、一度しか表示されません。忘れてしまった場合はキーを削除する必要があるためご注意ください。
-
-## 関連リソース
-
-- [Making an HTTP Request to Twilio](https://jp.twilio.com/docs/usage/requests-to-twilio)
 
 ## 次のハンズオン
 

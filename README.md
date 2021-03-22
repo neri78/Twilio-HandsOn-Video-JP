@@ -1,4 +1,5 @@
 # Twilio-HandsOn-Video-JP
+![video handson](docs/assets/video-header.jpg)
 [Twilio Programmable Video](https://www.twilio.com/ja/video)のハンズオン手順書です。
 
 ## 必要・推奨環境

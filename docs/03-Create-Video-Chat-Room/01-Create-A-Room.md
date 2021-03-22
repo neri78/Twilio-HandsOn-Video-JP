@@ -52,9 +52,9 @@ let room;
 try {
   // 進行中のビデオチャットルームを一意の名前で検索
   let rooms = await client.video.rooms.list({
-    status: 'in-progress', 
+    status : 'in-progress',
     uniqueName: ROOM
-  });
+  });
 }
 catch(error) {
   // エラーの場合
@@ -74,7 +74,7 @@ let room;
 try {
   // 進行中のビデオチャットルームを一意の名前で検索
   let rooms = await client.video.rooms.list({
-    status: 'in-progress', 
+    status : 'in-progress',
     uniqueName: ROOM
   });
   // 存在確認
@@ -95,6 +95,7 @@ catch(error) {
   callback(error);
 }
 ```
+
 ## 1-5. テスト実行
 
 再度下記のコードを利用し実行結果が想定通り得られているか確認します。
@@ -124,7 +125,7 @@ exports.handler = async function(context, event, callback) {
   try {
     // 進行中のビデオチャットルームを一意の名前で検索
     let rooms = await client.video.rooms.list({
-      status: 'in-progress', 
+      status : 'in-progress',
       uniqueName: ROOM
     });
 

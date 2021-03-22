@@ -31,7 +31,6 @@ loginForm.addEventListener('submit', async (event) => {
     // デバッグ用に出力
     console.log(`token: ${token}`);
     console.log(`room: ${room}`);
-    console.log(`roomSid: ${roomSid}`);
     
     // ビデオチャットを開始
     startVideoChat(token, room);
