@@ -29,6 +29,7 @@ API_SECRET=
 トークン生成に必要なロジックはすでに実装されています。プロジェクトフォルダで次のコマンドを実行しローカル環境でアプリケーションを実行します。
 
 ```
+npm install
 npm start
 ```
 
@@ -36,7 +37,7 @@ npm start
 
 ![ローカル環境で実行確認](../assets/02-local-development.png)
 
-表示されたURLをブラウザーで開き、アクセストークンが画面に表示されることを確認します。
+表示されたURL(`http://localhost:3000/video-token`)をブラウザーで開き、アクセストークンが画面に表示されることを確認します。
 
 ![アクセストークン](../assets/02-access-token.png)
 

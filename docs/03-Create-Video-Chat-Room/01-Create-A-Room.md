@@ -104,6 +104,8 @@ catch(error) {
 http://localhost:3000/video-token?identity=<任意のユーザー名>
 ```
 
+作成されたルームは[Programmable Videoコンソール](https://jp.twilio.com/console/video/dashboard)で確認できます。ただし、反映までにしばらく時間が必要です。
+
 これでアクセストークン生成リクエスト時、同時にビデオチャットRoomを作成できるようになりました。
 
 ここまでのコードは次のようになります。

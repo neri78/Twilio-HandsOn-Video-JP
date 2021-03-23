@@ -10,7 +10,7 @@
 
 ![クライアント側でアクセストークンを取得できている](../assets/04-client-access-token.png)
 
-roomSidが`undefined`になっていますがこのハンズオンでは問題ありません。[Roomを作成](../03-Create-Video-Chat-Room/01-Create-A-Room.md)の補足で説明されている`Room SID`を返すコードを実装すると表示されます。実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認しておくと良いでしょう。
+実際の処理は`video.js`で確認できます。特に追加の作業はありませんがコードを確認しておくと良いでしょう。
 
 ```js
 loginForm.addEventListener('submit', async (event) => {
