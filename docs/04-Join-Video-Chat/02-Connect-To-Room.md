@@ -87,6 +87,6 @@ async function startVideoChat(token, room) {
 __おめでとうございます。これでビデオチャットを開始できました。__
 ただし現時点では参加者の映像が出力されません。次のハンズオンでは映像や音声をほかの参加者と共有する方法を学習します。
 
-## 次のハンズオン
+## 次のセクション
 
-- [ハンズオン: トラックのパブリッシュとサブスクライブ](../05-Publish-Subscribe-Tracks/00-Overview.md)
+- [トラックのパブリッシュとサブスクライブ](../05-Publish-Subscribe-Tracks/00-Overview.md)

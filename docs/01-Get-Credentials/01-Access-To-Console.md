@@ -8,7 +8,8 @@ Programmable Videoを利用するためには、次の3つの資格情報が必�
 - API Key SID
 - API Secret
 
-また、Twilio Nodeヘルパーを利用する場合、下記の情報も必要です。
+また、今回のハンズオンではTwilio NodeヘルパーライブラリおよびServerless Toolkitを使用します。  
+Serverless Toolkitの仕様により、次の値も必要になります。
 
 - Auth Token
 
@@ -26,7 +27,7 @@ Twilioが提供するサービスの多くはアカウント情報（`Account SI
 
 続いてAPIキーを作成します。[APIキー作成画面](https://jp.twilio.com/console/project/api-keys/create)を表示します。
 
-`FRIENDLY NAME`に作成する任意の名前を入力し、`KEY TYPE`を`Standard`と設定します。
+`FRIENDLY NAME`に作成する任意の名前を入力します。また、`KEY TYPE`が`Standard`であることを確認します。
 
 ![APIキーを作成](../assets/01-create-api-key.png)
 
@@ -36,6 +37,6 @@ Twilioが提供するサービスの多くはアカウント情報（`Account SI
 
 なお、`SECRET`はこの画面のみ、一度しか表示されません。忘れてしまった場合はキーを削除する必要があるためご注意ください。
 
-## 次のハンズオン
+## 次のセクション
 
-- [ハンズオン: アクセストークンの生成](../02-Generate-Access-Token/00-Overview.md)
+- [アクセストークンの生成](../02-Generate-Access-Token/00-Overview.md)

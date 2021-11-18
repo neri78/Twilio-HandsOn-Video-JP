@@ -112,22 +112,26 @@ function participantConnected(participant) {
 ```js
 // トラックがパブリッシュされた際の処理
 function trackPublished(trackPublication, participant) {
+
+    console.log('パブリッシュされたトラック');
+    console.log(trackPublication);
+
     // 事前に作成した参加者のIdentityをIDにした<div>要素を取得
     const el = document.getElementById(participant.identity);
 
-    // トラックがサブスクライブされた際の処理
-    const trackSubscribed = (track) => {
-    // trackの種類に合わせて<video> <audio>タグを要素に追加
-    el.appendChild(track.attach())
-    // デバッグ用に出力
-    console.log(`${track}のサブスクライブ後処理を完了しました。`)
-    };
+        // トラックがサブスクライブされた際の処理をあらかじめ定義
+        const trackSubscribed = (track) => {
+        // trackの種類に合わせて<video> <audio>タグを要素に追加
+        el.appendChild(track.attach())
+        // デバッグ用に出力
+        console.log(`サブスクライブした${track}をページに追加しました。`)
+        };
 
     // パブリッシュされたトラックがサブスクライブされている場合
     if (trackPublication.track)
         trackSubscribed(trackPublication.track);
     
-    // パブリッシュされたトラックのサブスクライブイベントハンドラを登録
+    // RemoteParticipantがこのトラックをサブスクライブした際のイベントハンドラを登録
     trackPublication.on('subscribed', trackSubscribed);
 }
 ```

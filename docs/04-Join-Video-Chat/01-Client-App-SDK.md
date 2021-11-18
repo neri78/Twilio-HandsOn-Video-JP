@@ -15,7 +15,8 @@
     <!-- 省略 -->
     
     <!-- Twilio Client SDKを読み込み -->
-    <script src="//media.twiliocdn.com/sdk/js/video/releases/2.8.0/twilio-video.min.js"></script>
+    <script src="//sdk.twilio.com/js/video/releases/2.17.1/twilio-video.min.js"></script>
+</script>
     <script src="./video.js"></script>
  </html>
 ```

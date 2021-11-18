@@ -158,7 +158,6 @@ window.addEventListener('load', () => {
         // デバッグ用に出力
         console.log(`token: ${token}`);
         console.log(`room: ${room}`);
-        console.log(`roomSid: ${roomSid}`);
         
         // ビデオチャットを開始
         startVideoChat(token, room);        
@@ -168,27 +167,25 @@ window.addEventListener('load', () => {
     async function startVideoChat(token, room) {
         // Video Client SDKを使用し、Roomに接続（音声OFF, ビデオON）
         let videoRoom = await Twilio.Video.connect(
-        token, {
-            room: room,
-            audio: false,
-            video: true
-        });
-        // デバッグ用に出力
-        // console.log(`${videoRoom.localParticipant}で${videoRoom}に接続しました`);
-        console.log(videoRoom);
-        
-        
+            token, {
+             room: room,
+             audio: false,
+             video: true
+         });
+         // デバッグ用に出力
+         console.log(`${videoRoom.localParticipant}で${videoRoom}に接続しました`);
+
         // ローカル参加者をページに追加
         participantConnected(videoRoom.localParticipant);
-        
+
         // 現在のルーム参加者をページに追加
         videoRoom.participants.forEach(participantConnected);
 
-        // // Roomに新たに参加者が追加された場合のイベントハンドラを指定
-        videoRoom.on('participantConnected', participantConnected);
+        // Roomに新たに参加者が追加された場合のイベントハンドラを指定
+        videoRoom.on("participantConnected", participantConnected);
 
-        // // Roomから参加者が退出した場合のイベントハンドラを指定
-        videoRoom.on('participantDisconnected', participantDisconnected);
+        // Roomから参加者が退出した場合のイベントハンドラを指定
+        videoRoom.on("participantDisconnected", participantDisconnected);
 
         // ブラウザのリロードやタブのクローズ時にRoomから退出
         window.addEventListener('beforeunload', tidyUp(videoRoom));
@@ -217,22 +214,25 @@ window.addEventListener('load', () => {
 
     // トラックがパブリッシュされた際の処理
     function trackPublished(trackPublication, participant) {
+        
+        console.log('パブリッシュされたトラック');
+        console.log(trackPublication);
         // 事前に作成した参加者のIdentityをIDにした<div>要素を取得
         const el = document.getElementById(participant.identity);
 
-         // トラックがサブスクライブされた際の処理
+         // トラックがサブスクライブされた際の処理をあらかじめ定義
          const trackSubscribed = (track) => {
             // trackの種類に合わせて<video> <audio>タグを要素に追加
-            el.appendChild(track.attach())
+            el.appendChild(track.attach());
             // デバッグ用に出力
-            console.log(`${track}のサブスクライブ後処理を完了しました。`)
+            console.log(`サブスクライブした${track}をページに追加しました。`)
          };
 
-        // パブリッシュされたトラックがサブスクライブされている場合
+        // パブリッシュされたトラックのサブスクライブ処理（要素の追加）
         if (trackPublication.track)
             trackSubscribed(trackPublication.track);
         
-        // パブリッシュされたトラックのサブスクライブイベントハンドラを登録
+        // RemoteParticipantがこのトラックをサブスクライブした際のイベントハンドラを登録
         trackPublication.on('subscribed', trackSubscribed);
     }
 
@@ -263,7 +263,6 @@ window.addEventListener('load', () => {
         };
     }
 });
-
 ```
 
 

@@ -39,10 +39,10 @@ http://localhost:3000/video-token?identity=<任意のユーザー名>
 
 サーバ側で一意の値を生成する場合は、クライアント側に返してあげることも忘れないようにしましょう。コード例は下記の通りです。
 ```js
-response.setBody({ token: accessToken.toJwt(), identity: <一意の値>, room: ROOM });
+response.setBody({ token: accessToken.toJwt(), identity: '<一意の値>', room: ROOM });
 ```
 
-## 次のハンズオン
+## 次のセクション
 
-- [ハンズオン: ビデオチャット用のRoomを作成](../03-Create-Video-Chat-Room/00-Overview.md)
+- [ビデオチャット用のRoomを作成](../03-Create-Video-Chat-Room/00-Overview.md)
 

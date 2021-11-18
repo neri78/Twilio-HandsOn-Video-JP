@@ -4,7 +4,7 @@
 
 ## 1-1. サンプルアプリケーションをクローン
 
-[こちら](https://github.com/neri78/video-sample-jp)のサンプルアプリケーションをクローンするため、下記のコマンドを実行します。
+[サンプルアプリケーション](https://github.com/neri78/video-sample-jp)をクローンするため、下記のコマンドを実行します。
 
 ```bash
 git clone https://github.com/neri78/video-sample-jp.git
@@ -22,7 +22,7 @@ API_KEY=
 API_SECRET=
 ```
 
-こちらに[ハンズオン: AccountSidの確認とAPIキーの作成](../01-Get-Credentials/00-Overview.md)で確認、生成した値をそれぞれ入力します。
+こちらに[AccountSidの確認とAPIキーの作成](../01-Get-Credentials/00-Overview.md)で確認、生成した値をそれぞれ入力します。
 
 ## 1-2. テスト実行
 

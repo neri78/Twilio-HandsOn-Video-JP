@@ -23,10 +23,14 @@ Twilio Functionsのハンドラに引数として渡されるcontextからTwilio
 
 ```js
 exports.handler = async function(context, event, callback) {
-  // Change these values for your use case
-  // REMINDER: This identity is only for prototyping purposes
+  /*
+   * Change these values for your use case
+   * REMINDER: This identity is only for prototyping purposes
+   */
   const IDENTITY = event.identity;
   const ROOM = 'myroom';
+
+  const { ACCOUNT_SID } = context;
 
   // ここにコードを追加
   // Twilioクライアントを取得
@@ -47,7 +51,6 @@ exports.handler = async function(context, event, callback) {
 const client = context.getTwilioClient();
 let room;
 
-// 存在確認
 // ここからのコードを追加
 try {
   // 進行中のビデオチャットルームを一意の名前で検索
@@ -96,7 +99,7 @@ catch(error) {
 }
 ```
 
-## 1-5. テスト実行
+## 1-4. テスト実行
 
 再度下記のコードを利用し実行結果が想定通り得られているか確認します。
 
@@ -110,50 +113,62 @@ http://localhost:3000/video-token?identity=<任意のユーザー名>
 
 ここまでのコードは次のようになります。
 ```js
-exports.handler = async function(context, event, callback) {
-  // Change these values for your use case
-  // REMINDER: This identity is only for prototyping purposes
-  
-  // ユーザー名
+/**
+ *  Video Token
+ *
+ *  This Function shows you how to mint Access Tokens for Twilio Video. Please note, this is for prototyping purposes
+ *  only. You will want to validate the identity of clients requesting Access Token in most production applications and set
+ *  the identity when minting the Token.
+ *
+ *  Pre-requisites
+ *   - Create an API Key (https://www.twilio.com/console/runtime/api-keys)
+ */
+
+exports.handler = async function (context, event, callback) {
+  /*
+   * Change these values for your use case
+   * REMINDER: This identity is only for prototyping purposes
+   */
   const IDENTITY = event.identity;
-  // ビデオチャットルーム名
   const ROOM = 'myroom';
 
+  const { ACCOUNT_SID } = context;
 
-  //Twilioクライアントを取得
+  // Twilioクライアントを取得
   const client = context.getTwilioClient();
   let room;
-  //ここからのコードを追加
+
+  // ここからのコードを追加
   try {
+
     // 進行中のビデオチャットルームを一意の名前で検索
     let rooms = await client.video.rooms.list({
       status : 'in-progress',
       uniqueName: ROOM
     });
-
-    //ビデオルームが存在するかを確認
+    // ここからコードを追加
+    // ビデオルームが存在するかを確認
     if (rooms.length)
       room = rooms[0];
     else {
       // 存在しない場合は作成
       room = await client.video.rooms.create({ 
         uniqueName: ROOM,
-        type: 'group'
+        type: 'go'
       });
-    }    
+    }// ここまで  
   }
   catch(error) {
+    // エラーの場合
     console.error(error);
     callback(error);
   }
-  const ACCOUNT_SID = context.ACCOUNT_SID;
 
   // set these values in your .env file
-  const API_KEY = context.API_KEY;
-  const API_SECRET = context.API_SECRET;
+  const { API_KEY, API_SECRET } = context;
 
-  const AccessToken = Twilio.jwt.AccessToken;
-  const VideoGrant = AccessToken.VideoGrant;
+  const { AccessToken } = Twilio.jwt;
+  const { VideoGrant } = AccessToken;
 
   const grant = new VideoGrant();
   grant.room = ROOM;
@@ -163,37 +178,24 @@ exports.handler = async function(context, event, callback) {
   accessToken.addGrant(grant);
   accessToken.identity = IDENTITY;
 
-
   const response = new Twilio.Response();
 
-  // Uncomment these lines for CORS support
-  // response.appendHeader('Access-Control-Allow-Origin', '*');
-  // response.appendHeader('Access-Control-Allow-Methods', 'GET');
-  // response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+  /*
+   * Uncomment these lines for CORS support
+   * response.appendHeader('Access-Control-Allow-Origin', '*');
+   * response.appendHeader('Access-Control-Allow-Methods', 'GET');
+   * response.appendHeader('Access-Control-Allow-Headers', 'Content-Type');
+   */
 
   response.appendHeader('Content-Type', 'application/json');
-  // tokenのほかにビデオチャットルーム名、ルームSIDも返す。
-  response.setBody({ 
-    token: accessToken.toJwt(), 
-    room: ROOM});
+  response.setBody({ token: accessToken.toJwt(), room: ROOM });
   callback(null, response);
 };
 
 ```
 
 
-## 補足:ルーム名ではなく、Room Sidを返す
 
-今回のハンズオンでは使用しませんが、Roomの`SID`を返すように変更することで、クライアント側で一意のIDを利用できます。
+## 次のセクション
 
-```js
-// tokenのほかにビデオチャットルーム名、ルームSIDも返す。
-response.setBody({ 
-  token: accessToken.toJwt(), 
-  room: ROOM, 
-  roomSid: room.sid });
-```
-
-## 次のハンズオン
-
-- [ハンズオン: ビデオチャットに参加](../04-Join-Video-Chat/00-Overview.md)
+- [ビデオチャットに参加](../04-Join-Video-Chat/00-Overview.md)
