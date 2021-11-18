@@ -4,7 +4,7 @@
 
 ## 1-1. Twilio Video Client SDKを読み込み
 
-アプリケーションを再起動し、`https://localhost:3000/index.html`にアクセスすると下記のようなページが表示されることを確認します。
+アプリケーションを再起動し、`http://localhost:3000/index.html`にアクセスすると下記のようなページが表示されることを確認します。
 
 ![チャットクライアント](../assets/04-chat-client.png)
 
